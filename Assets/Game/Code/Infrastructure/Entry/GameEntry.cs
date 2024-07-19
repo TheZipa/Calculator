@@ -7,19 +7,19 @@ namespace Game.Code.Infrastructure.Entry
 {
     public class GameEntry : IStartable
     {
-        private readonly IGameStateMachine _gameStateMachine;
+        private readonly IStateMachine _stateMachine;
         private readonly IStateFactory _stateFactory;
 
-        public GameEntry(IGameStateMachine gameStateMachine, IStateFactory stateFactory)
+        public GameEntry(IStateMachine stateMachine, IStateFactory stateFactory)
         {
-            _gameStateMachine = gameStateMachine;
+            _stateMachine = stateMachine;
             _stateFactory = stateFactory;
         }
         
         public void Start()
         {
             _stateFactory.CreateAllStates();
-            _gameStateMachine.Enter<LoadApplicationState>(); 
+            _stateMachine.Enter<LoadApplicationState>(); 
         }
     }
 }

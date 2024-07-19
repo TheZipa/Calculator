@@ -9,9 +9,9 @@ namespace Game.Code.Services.Factories.StateFactory
     public class StateFactory : IStateFactory
     {
         private readonly IObjectResolver _objectResolver;
-        private readonly IGameStateMachine _stateMachine;
+        private readonly IStateMachine _stateMachine;
 
-        public StateFactory(IObjectResolver objectResolver, IGameStateMachine stateMachine)
+        public StateFactory(IObjectResolver objectResolver, IStateMachine stateMachine)
         {
             _objectResolver = objectResolver;
             _stateMachine = stateMachine;

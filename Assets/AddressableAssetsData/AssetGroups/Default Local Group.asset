@@ -21,18 +21,12 @@ MonoBehaviour:
     m_Address: RootCanvas
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: f8fd6e72c4dbf4652a62652bc8cb4032
-    m_Address: MainMenu
+    FlaggedDuringContentUpdateRestriction: 0
+  - m_GUID: 897e7673487f28e439a09a6c44b02f1f
+    m_Address: CalculatorView
     m_ReadOnly: 0
     m_SerializedLabels: []
-  - m_GUID: 66008b1a966734d69bfc2d1e89bae640
-    m_Address: TopPanel
-    m_ReadOnly: 0
-    m_SerializedLabels: []
-  - m_GUID: f025959d70da1ef45b4987c479d9bd71
-    m_Address: SettingsPanel
-    m_ReadOnly: 0
-    m_SerializedLabels: []
+    FlaggedDuringContentUpdateRestriction: 0
   m_ReadOnly: 0
   m_Settings: {fileID: 11400000, guid: bf9fea49eaefb44798f1a24471e47851, type: 2}
   m_SchemaSet:

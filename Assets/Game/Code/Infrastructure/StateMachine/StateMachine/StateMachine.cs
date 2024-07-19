@@ -4,7 +4,7 @@ using Game.Code.Infrastructure.StateMachine.States;
 
 namespace Game.Code.Infrastructure.StateMachine.GameStateMachine
 {
-    public class GameStateMachine : IGameStateMachine
+    public class StateMachine : IStateMachine
     {
         private readonly IDictionary<Type, IExitableState> _states = new Dictionary<Type, IExitableState>(10);
         private IExitableState _activeState;
@@ -33,6 +33,6 @@ namespace Game.Code.Infrastructure.StateMachine.GameStateMachine
         private TState GetState<TState>() where TState : class, IExitableState =>
             _states[typeof(TState)] as TState;
 
-        ~GameStateMachine() => _activeState.Exit();
+        ~StateMachine() => _activeState.Exit();
     }
 }

@@ -4,27 +4,32 @@ using Game.Code.Services.LoadingCurtain;
 
 namespace Game.Code.Infrastructure.StateMachine.States
 {
-    public class GameplayState : IState
+    public class CalculatorState : IState
     {
-        private readonly IGameStateMachine _gameStateMachine;
+        private readonly IStateMachine _stateMachine;
         private readonly IEntityContainer _entityContainer;
         private readonly ILoadingCurtain _loadingCurtain;
 
-        public GameplayState(IGameStateMachine gameStateMachine, IEntityContainer entityContainer, ILoadingCurtain loadingCurtain)
+        public CalculatorState(IStateMachine stateMachine, IEntityContainer entityContainer, ILoadingCurtain loadingCurtain)
         {
-            _gameStateMachine = gameStateMachine;
+            _stateMachine = stateMachine;
             _entityContainer = entityContainer;
             _loadingCurtain = loadingCurtain;
         }
 
         public void Enter()
         {
-            _loadingCurtain.Hide();
+            
         }
 
         public void Exit()
         {
             
+        }
+
+        private void Subscribe()
+        {
+           
         }
     }
 }
