@@ -8,10 +8,7 @@ namespace Core.Services.BaseFactory
     {
         protected readonly IAssets _assets;
 
-        protected BaseFactory(IAssets assets)
-        {
-            _assets = assets;
-        }
+        protected BaseFactory(IAssets assets) => _assets = assets;
 
         public async UniTask<T> Instantiate<T>(Vector3 at, Vector3 rotation, Transform parent = null) where T : Object
         {
@@ -24,6 +21,12 @@ namespace Core.Services.BaseFactory
         public async UniTask<T> Instantiate<T>(Transform parent = null) where T : Object
         {
             GameObject instantiatedObject = await _assets.Instantiate<GameObject>(typeof(T).Name, parent);
+            return instantiatedObject.GetComponent<T>();
+        }
+        
+        public async UniTask<T> Instantiate<T>(string assetKey, Transform parent = null) where T : Object
+        {
+            GameObject instantiatedObject = await _assets.Instantiate<GameObject>(assetKey, parent);
             return instantiatedObject.GetComponent<T>();
         }
     }

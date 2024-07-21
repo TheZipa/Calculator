@@ -3,6 +3,7 @@ using TMPro;
 using UnityEngine;
 using UnityEngine.Pool;
 using UnityEngine.UI;
+using Vector2 = UnityEngine.Vector2;
 
 namespace Calculator.View
 {
@@ -18,6 +19,7 @@ namespace Calculator.View
 
         [SerializeField] private TMP_InputField _equationInputField;
         [SerializeField] private RectTransform _windowTransform;
+        [SerializeField] private RectTransform _resultScrollTransform;
         [SerializeField] private Button _resultButton;
 
         private ICalculatorPresenter _calculatorPresenter;
@@ -42,7 +44,9 @@ namespace Calculator.View
         private void ResizeWindow(Vector2 elementSize)
         {
             if (ResultsLayout.childCount > 7) return;
-            _windowTransform.sizeDelta += new Vector2(0, elementSize.y);
+            Vector2 addSize = new(0, elementSize.y);
+            _windowTransform.sizeDelta += addSize;
+            _resultScrollTransform.sizeDelta += addSize;
         }
     }
 }

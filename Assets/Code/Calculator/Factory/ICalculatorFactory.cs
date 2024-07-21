@@ -1,11 +1,11 @@
 ﻿using Core.Services;
-using Core.Services.BaseFactory;
 using Cysharp.Threading.Tasks;
+using UnityEngine;
 
 namespace Calculator.Factory
 {
-    public interface ICalculatorFactory : IBaseFactory, IGlobalService
+    public interface ICalculatorFactory : IGlobalService
     {
-        UniTask CreateCalculator();
+        UniTask CreateCalculator(Transform canvas);
     }
 }

@@ -25,7 +25,10 @@ namespace Infrastructure.Entry
             DontDestroyOnLoad(this);
         }
 
-        private static void RegisterEntryPoint(IContainerBuilder builder) => builder.RegisterEntryPoint<GameEntry>();
+        private static void RegisterEntryPoint(IContainerBuilder builder)
+        {
+            builder.RegisterEntryPoint<GameEntry>();
+        }
 
         private void RegisterInstanceServices(IContainerBuilder builder)
         {

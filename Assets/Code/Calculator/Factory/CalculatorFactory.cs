@@ -23,9 +23,9 @@ namespace Calculator.Factory
             _windowService = windowService;
         }
 
-        public async UniTask CreateCalculator()
+        public async UniTask CreateCalculator(Transform canvas)
         {
-            CalculatorView calculatorView = await CreateCalculatorView();
+            CalculatorView calculatorView = await CreateCalculatorView(canvas);
             ICalculatorPresenter presenter = new CalculatorPresenter(_windowService, 
                 new CalculatorModel(WindowId.Calculator, _saveLoadService, calculatorView));
             calculatorView.Initialize(presenter, await CreateEquationResultsPool(calculatorView.ResultsLayout));
@@ -33,10 +33,10 @@ namespace Calculator.Factory
                 calculatorView.AddResultText(equation);
         }
 
-        private async UniTask<CalculatorView> CreateCalculatorView()
+        private async UniTask<CalculatorView> CreateCalculatorView(Transform canvas)
         {
             await _assets.Load<GameObject>(nameof(CalculatorView));
-            return await Instantiate<CalculatorView>();
+            return await Instantiate<CalculatorView>(canvas);
         }
 
         private async UniTask<IObjectPool<EquationResultView>> CreateEquationResultsPool(Transform layout)
