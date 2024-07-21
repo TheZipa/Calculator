@@ -6,10 +6,10 @@ EditorBuildSettings:
   serializedVersion: 2
   m_Scenes:
   - enabled: 1
-    path: Assets/Game/Scenes/Bootstrap.unity
+    path: Assets/App/Scenes/Bootstrap.unity
     guid: 9ac1076842716426aa70c49d574162cd
   - enabled: 1
-    path: "Assets/Game/Scenes/\u0421alculator.unity"
+    path: "Assets/App/Scenes/\u0421alculator.unity"
     guid: 72cea7ddd7debdb4a90c840cac1b0bd6
   m_configObjects:
     com.unity.addressableassets: {fileID: 11400000, guid: 123fbacef55de4b6e90eec8488dbe502, type: 2}
