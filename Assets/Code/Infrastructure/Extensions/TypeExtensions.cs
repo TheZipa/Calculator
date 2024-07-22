@@ -3,7 +3,7 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Reflection;
 using Core.Services;
-using Core.Services.BaseFactory;
+using Core.Services.Factories.BaseFactory;
 using Infrastructure.StateMachine.States;
 
 namespace Infrastructure.Extensions

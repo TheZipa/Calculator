@@ -1,9 +1,9 @@
 ﻿using System;
 
-namespace Infrastructure.Entry
+namespace Infrastructure.Data
 {
     [Serializable]
-    public class ContainerRegistriesData
+    public class RegistriesTypes
     {
         public Type[] States;
         public (Type, Type)[] Services;

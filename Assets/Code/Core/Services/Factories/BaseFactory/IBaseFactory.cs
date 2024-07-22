@@ -1,7 +1,7 @@
 using Cysharp.Threading.Tasks;
 using UnityEngine;
 
-namespace Core.Services.BaseFactory
+namespace Core.Services.Factories.BaseFactory
 {
     public interface IBaseFactory
     {

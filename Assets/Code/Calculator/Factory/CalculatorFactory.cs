@@ -3,7 +3,7 @@ using Calculator.Presenter;
 using Calculator.View;
 using Core.Data.Enums;
 using Core.Services.Assets;
-using Core.Services.BaseFactory;
+using Core.Services.Factories.BaseFactory;
 using Core.Services.SaveLoad;
 using Core.Services.Windows;
 using Cysharp.Threading.Tasks;
@@ -26,11 +26,11 @@ namespace Calculator.Factory
         public async UniTask CreateCalculator(Transform canvas)
         {
             CalculatorView calculatorView = await CreateCalculatorView(canvas);
-            ICalculatorPresenter presenter = new CalculatorPresenter(_windowService, 
-                new CalculatorModel(WindowId.Calculator, _saveLoadService, calculatorView));
+            ICalculatorModel calculatorModel = new CalculatorModel(WindowId.Calculator, _saveLoadService, calculatorView);
+            ICalculatorPresenter presenter = new CalculatorPresenter(_windowService, calculatorModel);
             calculatorView.Initialize(presenter, await CreateEquationResultsPool(calculatorView.ResultsLayout));
             foreach (string equation in _saveLoadService.Progress.EquationHistory) 
-                calculatorView.AddResultText(equation);
+                calculatorView.AddResultText(equation, calculatorModel.ResultsLayoutLimit);
         }
 
         private async UniTask<CalculatorView> CreateCalculatorView(Transform canvas)

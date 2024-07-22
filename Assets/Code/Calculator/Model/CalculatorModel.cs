@@ -7,6 +7,7 @@ namespace Calculator.Model
 {
     public class CalculatorModel : global::Core.Model.Model, ICalculatorModel
     {
+        public int ResultsLayoutLimit { get; } = 7;
         public LinkedList<string> EquationHistory { get; }
         private readonly ISaveLoadService _saveLoadService;
         private readonly ICalculatorView _calculatorView;
@@ -23,7 +24,7 @@ namespace Calculator.Model
         public void AddEquation(string equation)
         {
             EquationHistory.AddLast(equation);
-            _calculatorView.AddResultText(equation);
+            _calculatorView.AddResultText(equation, ResultsLayoutLimit);
             _saveLoadService.Save();
         }
 

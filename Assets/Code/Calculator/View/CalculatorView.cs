@@ -34,16 +34,16 @@ namespace Calculator.View
             _equationInputField.onValueChanged.AddListener(equation => _calculatorPresenter.UpdateEquation(equation));
         }
 
-        public void AddResultText(string result)
+        public void AddResultText(string result, int viewLimit)
         {
             EquationResultView equationResult = _resultsPool.Get();
             equationResult.Construct(result);
-            ResizeWindow(equationResult.Size);
+            ResizeWindow(equationResult.Size, viewLimit);
         }
 
-        private void ResizeWindow(Vector2 elementSize)
+        private void ResizeWindow(Vector2 elementSize, int limit)
         {
-            if (ResultsLayout.childCount > 7) return;
+            if (ResultsLayout.childCount > limit) return;
             Vector2 addSize = new(0, elementSize.y);
             _windowTransform.sizeDelta += addSize;
             _resultScrollTransform.sizeDelta += addSize;

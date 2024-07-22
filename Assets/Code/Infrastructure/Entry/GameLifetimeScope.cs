@@ -1,22 +1,26 @@
 using System;
+using System.Collections.Generic;
 using Core.Services.LoadingCurtain;
+using Infrastructure.Data;
+using Newtonsoft.Json;
 using UnityEngine;
 using VContainer;
 using VContainer.Unity;
-using TypeExtensions = Infrastructure.Extensions.TypeExtensions;
 
 namespace Infrastructure.Entry
 {
     public class GameLifetimeScope : LifetimeScope
     {
         [SerializeField] private LoadingCurtain _loadingCurtain;
+        [SerializeField] private ContainerRegistriesData _containerRegistriesData;
 
         protected override void Configure(IContainerBuilder builder)
         {
+            RegistriesTypes registriesTypes = LoadRegistriesTypes();
             RegisterEntryPoint(builder);
             RegisterInstanceServices(builder);
-            RegisterServices(builder);
-            RegisterStates(builder);
+            RegisterServices(builder, registriesTypes.Services);
+            RegisterStates(builder, registriesTypes.States);
         }
 
         protected override void Awake()
@@ -24,6 +28,9 @@ namespace Infrastructure.Entry
             base.Awake();
             DontDestroyOnLoad(this);
         }
+
+        private RegistriesTypes LoadRegistriesTypes() =>
+            JsonConvert.DeserializeObject<RegistriesTypes>(_containerRegistriesData.RegistriesJson);
 
         private static void RegisterEntryPoint(IContainerBuilder builder)
         {
@@ -35,16 +42,15 @@ namespace Infrastructure.Entry
             builder.RegisterComponent(_loadingCurtain).AsImplementedInterfaces();
         }
 
-        private static void RegisterServices(IContainerBuilder builder)
+        private void RegisterServices(IContainerBuilder builder, IEnumerable<(Type, Type)> services)
         {
-            // TODO: Кэширование сервисов
-            foreach ((Type serviceImplementation, Type serviceInterface) in TypeExtensions.GetAllGlobalServiceTypes())
+            foreach ((Type serviceImplementation, Type serviceInterface) in services)
                 builder.Register(serviceImplementation, Lifetime.Singleton).As(serviceInterface);
         }
 
-        private static void RegisterStates(IContainerBuilder builder)
+        private void RegisterStates(IContainerBuilder builder, IEnumerable<Type> states)
         {
-            foreach (Type stateType in TypeExtensions.GetAllStatesTypes())
+            foreach (Type stateType in states)
                 builder.Register(stateType, Lifetime.Singleton);
         }
     }

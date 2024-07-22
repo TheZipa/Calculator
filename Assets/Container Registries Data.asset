@@ -1,0 +1,35 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 3e088f277e79431d9d94d594d1076f0d, type: 3}
+  m_Name: Container Registries Data
+  m_EditorClassIdentifier: 
+  RegistriesJson: '{"States":["Infrastructure.StateMachine.States.CalculatorState,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Infrastructure.StateMachine.States.LoadApplicationState,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"],"Services":[{"Item1":"Infrastructure.StateMachine.StateMachine.StateMachine,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Infrastructure.StateMachine.StateMachine.IStateMachine,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Infrastructure.StateFactory.StateFactory,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Infrastructure.StateFactory.IStateFactory,
+    Infrastructure, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Core.Services.Windows.WindowService,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Core.Services.Windows.IWindowService,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Core.Services.SceneLoader.SceneLoader,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Core.Services.SceneLoader.ISceneLoader,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Core.Services.SaveLoad.SaveLoadService,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Core.Services.SaveLoad.ISaveLoadService,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Core.Services.Factories.UIFactory.UIFactory,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Core.Services.Factories.UIFactory.IUIFactory,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Core.Services.Assets.AssetProvider,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Core.Services.Assets.IAssets,
+    Core, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Code.MessageBox.Factory.MessageBoxFactory,
+    MessageBox, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Code.MessageBox.Factory.IMessageBoxFactory,
+    MessageBox, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"},{"Item1":"Calculator.Factory.CalculatorFactory,
+    Calculator, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null","Item2":"Calculator.Factory.ICalculatorFactory,
+    Calculator, Version=0.0.0.0, Culture=neutral, PublicKeyToken=null"}]}'

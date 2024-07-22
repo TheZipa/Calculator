@@ -50,6 +50,7 @@ MonoBehaviour:
   autoRun: 1
   autoInjectGameObjects: []
   _loadingCurtain: {fileID: 3601163448727096373}
+  _containerRegistriesData: {fileID: 11400000, guid: 22745891c12e06a4ca0f5b83cdfa5a4f, type: 2}
 --- !u!1001 &885554096703420178
 PrefabInstance:
   m_ObjectHideFlags: 0

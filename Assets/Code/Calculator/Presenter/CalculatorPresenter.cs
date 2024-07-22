@@ -1,6 +1,7 @@
 ﻿using System;
 using System.Linq;
 using Calculator.Model;
+using Core.Data.Enums;
 using Core.Services.Windows;
 
 namespace Calculator.Presenter
@@ -20,6 +21,7 @@ namespace Calculator.Presenter
             if (numbers is null)
             {
                 _calculatorModel.AddEquation(equation + "=ERROR");
+                _windowService.Open(WindowId.MessageBox);
                 return;
             }
             
