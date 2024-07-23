@@ -1,4 +1,5 @@
 ﻿using Code.MessageBox.Model;
+using Core.Data.Enums;
 using Core.Services.Windows;
 
 namespace Code.MessageBox.Presenter
@@ -14,5 +15,7 @@ namespace Code.MessageBox.Presenter
         }
 
         public void UpdateMessage(MessageId messageId) => _messageBoxModel.SetMessage(messageId);
+
+        public void OnGotItClicked() => _windowService.Open(WindowId.Calculator);
     }
 }

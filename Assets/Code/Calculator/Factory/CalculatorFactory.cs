@@ -29,6 +29,7 @@ namespace Calculator.Factory
             ICalculatorModel calculatorModel = new CalculatorModel(WindowId.Calculator, _saveLoadService, calculatorView);
             ICalculatorPresenter presenter = new CalculatorPresenter(_windowService, calculatorModel);
             calculatorView.Initialize(presenter, await CreateEquationResultsPool(calculatorView.ResultsLayout));
+            _windowService.RegisterWindow(WindowId.Calculator, calculatorView);
             foreach (string equation in _saveLoadService.Progress.EquationHistory) 
                 calculatorView.AddResultText(equation, calculatorModel.ResultsLayoutLimit);
         }

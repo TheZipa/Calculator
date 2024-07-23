@@ -14,7 +14,11 @@ namespace Code.MessageBox.View
         public void Initialize(IMessageBoxPresenter messageBoxPresenter)
         {
             _messageBoxPresenter = messageBoxPresenter;
-            _gotItButton.onClick.AddListener(Hide);
+            _gotItButton.onClick.AddListener(() =>
+            {
+                Hide();
+                _messageBoxPresenter.OnGotItClicked();
+            });
         }
 
         public void SetMessage(string message) => _messageText.text = message;

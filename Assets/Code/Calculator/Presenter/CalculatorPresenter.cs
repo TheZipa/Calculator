@@ -21,12 +21,14 @@ namespace Calculator.Presenter
             if (numbers is null)
             {
                 _calculatorModel.AddEquation(equation + "=ERROR");
+                _windowService.Close(WindowId.Calculator);
                 _windowService.Open(WindowId.MessageBox);
                 return;
             }
             
             int result = numbers.Sum();
             _calculatorModel.AddEquation(equation + '=' + result);
+            _calculatorModel.SetEquation(String.Empty);
         }
 
         public void UpdateEquation(string equation) => _calculatorModel.SetEquation(equation);

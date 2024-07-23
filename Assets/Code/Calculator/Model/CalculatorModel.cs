@@ -32,6 +32,7 @@ namespace Calculator.Model
         {
             _saveLoadService.Progress.CurrentEquation = equation;
             _saveLoadService.Save();
+            _calculatorView.EquationInput = equation;
         }
     }
 }

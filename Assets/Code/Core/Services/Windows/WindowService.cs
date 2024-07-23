@@ -5,7 +5,7 @@ namespace Core.Services.Windows
 {
     public class WindowService : IWindowService
     {
-        private readonly Dictionary<WindowId, View.View> _views = new(5);
+        private readonly Dictionary<WindowId, View.View> _views = new(4);
 
         public void RegisterWindow(WindowId id, View.View view) => _views.Add(id, view);
 
